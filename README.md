@@ -1,32 +1,23 @@
-EleksUnitTestsWorkshop
-======================
+.NET Stream: Unit Tests Workshop
+================================
 
-Sample project to which unit tests shall be written. Code already written in testable manner
+This is a sample project for which unit tests shall be written. The code is already written in testable manner.
 
-Tou have source code of application that searches for files with same content.
-Source code was written in a hurry ans has some bugs. Also it is not an optimal and fastest solution to the problem.
-Write automated tests for this simple application and try to find and fix bugs.
+You have the source code of an application that searches for duplicate files within the specified folder.
+The code was written in a hurry and has some bugs :) Also, it is not an optimal and fastest solution to the problem.
 
+**Your task: Fork this repo to your GitHub account. Write automated tests for this simple application and try to find and fix bugs.**
 
 Test that:
 
-  FilesFinder.FindWithSameContent() works properly:
+- ``FilesFinder.FindWithSameContent()`` works properly:
+    - returns an empty list, if an empty input directory is provided
+    - throws an exception, if the provided directory does not exist
+    - returns a list with 2 files, if provided directory contains 2 equal files
+    - returns an empty list, if provided directory contains 2 different files
+    - returns 2 lists, each with 2 files, if provided directory contains 4 files with same length but only each 2 have the same content
 
-    - returns empty list if empty input directory provided
-
-    - throws exception, if provided directory does not exist
-
-    - returns 2 equal files, if provided directory contains 2 equal files
-
-    - returns empty list, if provided directory contains 2 different files
-
-    - returns two list of same files, if provided directory contains 4 files with same length but only each 2 have same content
-
-
-  SameContentComparer works properly:
-
+- ``SameContentComparer`` works properly:
     - Arrays are compared properly (arrays with same elements are equal, arrays with different elements are not equal)
-
-    - Stream comparison works properly in case when buffer size is less, eq, greater than content length
-
-    - If files with same FullName are compared, IFileService.Open() is not called, because files are definitely equal
+    - ``Stream`` comparison works properly in case when buffer size is less, equal to, or greater than content length
+    - If files with same ``FullName`` are compared, ``IFileService.Open()`` is not called, because files are definitely equal
